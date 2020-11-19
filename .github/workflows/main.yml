@@ -9,20 +9,20 @@ jobs:
     name: log
     runs-on: ubuntu-latest # 运行环境
     steps: # 步骤
-    - name: Install
-    uses: actions/checkout@v2.3.4
-    - name: Build
-    uses: actions/setup-node@v2.1.2
-    - run: yarn install
-    - run: yarn build
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Install Node
+        uses: actions/setup-node@v2.1.2
+      - run: yarn install
+      - run: yarn build
 
-    # 上传到服务器
-    - name: Publish
-    uses: easingthemes/ssh-deploy@v2.1.5
-    with:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      SOURCE: log
-      REMOTE_HOST: ${{ secrets.HOST }}
-      REMOTE_USER: ${{ secrets.USERNAME }}
-      port: '22'
-      TARGET: /root
+      # 上传到服务器
+      - name: Publish
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: log
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          port: '22'
+          TARGET: /root
