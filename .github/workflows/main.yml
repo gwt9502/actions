@@ -1,0 +1,28 @@
+name: node action # 名称
+on: 
+  push:
+    branches:
+      -main
+
+jobs:
+  build_and_publish:
+    name: log
+    runs-on: ubuntu-latest # 运行环境
+    steps: # 步骤
+    - name: Install
+    uses: actions/checkout@master
+    - name: Build
+    uses: actions/setup-node@master
+    - run: yarn install
+    - run: yarn build
+
+    # 上传到服务器
+    - name: Publish
+    uses: easingthemes/ssh-deploy@v2.1.5
+    with:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SOURCE: log
+      REMOTE_HOST: ${{ secrets.HOST }}
+      REMOTE_USER: ${{ secrets.USERNAME }}
+      port: '22'
+      TARGET: /root

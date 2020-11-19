@@ -1,0 +1,24 @@
+{
+  "name": "actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwt9502/actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gwt9502/actions/issues"
+  },
+  "homepage": "https://github.com/gwt9502/actions#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}
