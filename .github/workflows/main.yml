@@ -24,5 +24,4 @@ jobs:
           SOURCE: log
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          port: '22'
           TARGET: /root
